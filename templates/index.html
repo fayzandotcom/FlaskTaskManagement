@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>My Tasks</h2>
+    {% if tasks %}
+    <ul>
+    {% for task in tasks %}
+        <li>
+            <b>{{ task.title }}</b> <i> created on {{ task.date }}</i>
+            <a href="{{ url_for('edit', task_id=task.id) }}">Edit</a>
+            <a href="{{ url_for('delete', task_id=task.id) }}">Delete</a>
+        </li>
+    {% endfor %}
+
+    {% else %}
+        <p>No more tasks...</p>
+    {% endif %}
+    </ul>
+{% endblock %}

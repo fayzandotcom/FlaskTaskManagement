@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Task Management</title>
+    </head>
+    <body>
+        <h1>Task Management</h1>
+        <hr>
+            <ul>
+                <li>
+                    <a href="{{ url_for('index') }}">My Tasks</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('add') }}">Add New</a>
+                </li>
+            </ul>
+        <hr>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div>{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
